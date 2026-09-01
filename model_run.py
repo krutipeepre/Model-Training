@@ -10,32 +10,36 @@ print("Loading infrastructure datasets...")
 lamps_df = pd.read_csv("delhi_real_street_lamps.csv")
 police_df = pd.read_csv("delhi_real_police_stations.csv")
 
-# 1. Load your verified real-world infrastructure data
-print("Loading infrastructure datasets...")
-lamps_df = pd.read_csv("delhi_real_street_lamps.csv")
-police_df = pd.read_csv("delhi_real_police_stations.csv")
+# 2. Smart Dynamic Crime Weight Mapping
+def assign_crime_weight(row):
+    name = str(row['name']).lower()
+    
+    # Keywords for areas with historically higher vulnerability or outer borders
+    high_risk_keywords = ['bawana', 'najafgarh', 'jaffar pur', 'outer', 'narela', 'mehrauli']
+    moderate_risk_keywords = ['vikas puri', 'ashok vihar', 'shalimar bagh', 'hari nagar', 'malviya nagar']
+    
+    if any(keyword in name for keyword in high_risk_keywords):
+        return 1.8
+    elif any(keyword in name for keyword in moderate_risk_keywords):
+        return 1.3
+    else:
+        return 1.0
 
-# --- YE HISSAN YAHAN ADD KARNA HAI ---
-if 'crime_weight' not in police_df.columns:
-    police_df['crime_weight'] = 1.0  # Default weight
-    police_df.to_csv("delhi_real_police_stations.csv", index=False)
-    print("Updated delhi_real_police_stations.csv with crime_weight column!")
-# ------------------------------------
+# Apply the mapping function and update the physical CSV file automatically
+police_df['crime_weight'] = police_df.apply(assign_crime_weight, axis=1)
+police_df.to_csv("delhi_real_police_stations.csv", index=False)
+print("Updated delhi_real_police_stations.csv with dynamic crime weights!")
 
-# Optional: Agar police_df mein crime_weight column nahi hai, toh default 1.0 set kar do
-if 'crime_weight' not in police_df.columns:
-    police_df['crime_weight'] = 1.0  # Isko baad mein historical data ke mutabiq customize kar sakti ho
-
-# 2. Convert GPS coordinates to radians (Required for Haversine distance math)
+# 3. Convert GPS coordinates to radians (Required for Haversine distance math)
 lamps_rad = np.deg2rad(lamps_df[['Latitude', 'Longitude']].values)
 police_rad = np.deg2rad(police_df[['Latitude', 'Longitude']].values)
 
-# 3. Build the Spatial Trees
+# 4. Build the Spatial Trees
 print("Training Spatial Trees...")
 lamp_tree = BallTree(lamps_rad, metric='haversine')
 police_tree = BallTree(police_rad, metric='haversine')
 
-# 4. Define the Intelligence: Enhanced Risk Scoring Function with Crime Weights
+# 5. Define the Intelligence: Enhanced Risk Scoring Function with Crime Weights
 def calculate_risk_score(lat, lon):
     R = 6371000  # Earth's radius in meters
     point_rad = np.deg2rad([[lat, lon]])
@@ -76,10 +80,11 @@ def calculate_risk_score(lat, lon):
         "is_isolated_soonsaan": is_isolated
     }
 
-# 5. Test the model near Hauz Khas
-test_lat, test_lon = 28.5494, 77.2001
-result = calculate_risk_score(test_lat, test_lon)
+# 6. Test the model near Hauz Khas
+if __name__ == "__main__":
+    test_lat, test_lon = 28.5494, 77.2001
+    result = calculate_risk_score(test_lat, test_lon)
 
-print("\n--- Vyaghri ML Enhanced Spatial Risk Assessment ---")
-for key, value in result.items():
-    print(f"{key}: {value}")
+    print("\n--- Vyaghri ML Enhanced Spatial Risk Assessment ---")
+    for key, value in result.items():
+        print(f"{key}: {value}")

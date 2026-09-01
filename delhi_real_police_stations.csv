@@ -1,13 +1,13 @@
 name,Latitude,Longitude,crime_weight
-Bawana Police station,28.8055119,77.0256424,1.0
-Shalimar Bagh Police Station,28.7170924,77.1571367,1.0
-Vikas Puri,28.6301441,77.0682683,1.0
-Ashok Vihar Police Station,28.6925224,77.1739049,1.0
-Najafgarh Police Thana,28.6098145,76.9828316,1.0
+Bawana Police station,28.8055119,77.0256424,1.8
+Shalimar Bagh Police Station,28.7170924,77.1571367,1.3
+Vikas Puri,28.6301441,77.0682683,1.3
+Ashok Vihar Police Station,28.6925224,77.1739049,1.3
+Najafgarh Police Thana,28.6098145,76.9828316,1.8
 Police Chowki,28.6126106,76.9867433,1.0
-Jaffar Pur Police Station,28.5958543,76.9151778,1.0
-Police Station Malviya Nagar,28.5306718,77.2045562,1.0
-Hari Nagar Police Station,28.6097133,77.0997911,1.0
+Jaffar Pur Police Station,28.5958543,76.9151778,1.8
+Police Station Malviya Nagar,28.5306718,77.2045562,1.3
+Hari Nagar Police Station,28.6097133,77.0997911,1.3
 Prasad Nagar Police Station,28.6478735,77.180705,1.0
 Dwarka Police Station,28.5649687,77.0584523,1.0
 Police Booth,28.6702484,77.1336893,1.0
@@ -58,7 +58,7 @@ Gandhi Nagar Police Station,28.6599766,77.2671907,1.0
 Bara Hindu Rao Police Station,28.6657245,77.2080538,1.0
 Sabzi Mandi Police Station,28.6689322,77.2073279,1.0
 Crime Against Women Cell,28.6694195,77.2073751,1.0
-Delhi Police — Mehrauli,28.5262044,77.1779413,1.0
+Delhi Police — Mehrauli,28.5262044,77.1779413,1.8
 Keshavpur Sabzi Mandi,28.6515928,77.0881006,1.0
 Police Station Mandawali,28.6250464,77.3061809,1.0
 Police Station Madhu Vihar,28.6250657,77.3062871,1.0
@@ -127,7 +127,7 @@ Hazrat Nizamuddin Police Station,28.592253604248043,77.24371847747389,1.0
 Police Station Chankyapuri,28.60282503205778,77.19600186563478,1.0
 Police Station South Rohini,28.702347192824497,77.11535356063611,1.0
 Keshav Puram Police Station,28.68389594122516,77.1595688551717,1.0
-Mukherjee Nagar Police Station (Guru Tegh Bahadur Nagar),28.700258186133517,77.2092847320876,1.0
+Mukherjee Nagar Police Station (Guru Tegh Bahadur Nagar),28.70025818613352,77.2092847320876,1.0
 Police Station Connaught Place,28.62985526487248,77.21418607495158,1.0
 Welcome Police Station,28.681811067534102,77.27853873537705,1.0
 Police Station Tilak Marg,28.61787843260213,77.23550204753158,1.0
@@ -144,8 +144,8 @@ Preet Vihar Police Station,28.639259174941785,77.29541661509799,1.0
 kalindi kunj pollice station,28.530662231212247,77.3188002430416,1.0
 Police Station Greater Kailash 1,28.546199697099564,77.24312664892548,1.0
 Delhi Cantt Police Station,28.59897240867348,77.1240126800851,1.0
-Central Reserve Police Force Transit Camp,28.640988583065276,77.22436313950874,1.0
-Police Station Model Town,28.702172265938437,77.19362827667925,1.0
+Central Reserve Police Force Transit Camp,28.64098858306528,77.22436313950874,1.0
+Police Station Model Town,28.70217226593844,77.19362827667925,1.0
 Police Station Hauz Qazi,28.649812788699467,77.22579074428974,1.0
 Police Station Rajiv Chowk Metro,28.649829702304142,77.22682313378701,1.0
 Economic Offences Wing,28.63913583607636,77.20309171210968,1.0

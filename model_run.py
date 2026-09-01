@@ -10,6 +10,18 @@ print("Loading infrastructure datasets...")
 lamps_df = pd.read_csv("delhi_real_street_lamps.csv")
 police_df = pd.read_csv("delhi_real_police_stations.csv")
 
+# 1. Load your verified real-world infrastructure data
+print("Loading infrastructure datasets...")
+lamps_df = pd.read_csv("delhi_real_street_lamps.csv")
+police_df = pd.read_csv("delhi_real_police_stations.csv")
+
+# --- YE HISSAN YAHAN ADD KARNA HAI ---
+if 'crime_weight' not in police_df.columns:
+    police_df['crime_weight'] = 1.0  # Default weight
+    police_df.to_csv("delhi_real_police_stations.csv", index=False)
+    print("Updated delhi_real_police_stations.csv with crime_weight column!")
+# ------------------------------------
+
 # Optional: Agar police_df mein crime_weight column nahi hai, toh default 1.0 set kar do
 if 'crime_weight' not in police_df.columns:
     police_df['crime_weight'] = 1.0  # Isko baad mein historical data ke mutabiq customize kar sakti ho
